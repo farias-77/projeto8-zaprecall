@@ -32,7 +32,9 @@ export default function Main(){
             <div className="questions">
                 {cards.map((card, index) => <Question question={card.question} answer={card.answer} index={index}/>)}
             </div>
-            {/* <Footer /> */}
+            <div className="footer">
+                0/{cards.length} CONCLUÍDOS
+            </div>
         </>
     )
 }
