@@ -76,7 +76,7 @@ body{
     width: 52px;
 }
 
-.body{
+.questions{
     width: 100%;
 
     display: flex;
@@ -97,13 +97,11 @@ body{
     font-family: 'Recursive', sans-serif;
     
     backface-visibility: hidden;
-    transition: all .5s;
-    transform-style: preserve-3d;
 }
 
 .question{
     width: 100%;
-    height: 100%;
+    height: 65px;
     padding: 0 20px;
 
     display: flex;
@@ -121,6 +119,8 @@ body{
 .front{
     width: 100%;
     height: 130px;
+
+    margin-bottom: 25px;
     
     font-size: 18px;
     font-weight: 400;
@@ -231,6 +231,11 @@ body{
 
 .green{
     background-color: #2FBE34;
+}
+
+.height130{
+    height: 130px;
+    background-color: #FFFFD5;
 }
 
 
