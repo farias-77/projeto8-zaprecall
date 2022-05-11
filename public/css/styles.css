@@ -238,27 +238,41 @@ body{
 
 
 
-
-
 .hidden{
     display: none;
 }
 
-.red{
+.redBackground{
     background-color: #FF3030;
 }
 
-.orange{
+.orangeBackground{
     background-color: #FF922E;
 }
 
-.green{
+.greenBackground{
     background-color: #2FBE34;
+}
+
+.red{
+    color: #FF3030;
+}
+
+.orange{
+    color: #FF922E;
+}
+
+.green{
+    color: #2FBE34;
 }
 
 .height130{
     height: 130px;
     background-color: #FFFFD5;
+}
+
+.linethrough{
+    text-decoration: line-through;
 }
 
 

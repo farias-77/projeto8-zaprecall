@@ -1,32 +1,57 @@
 import React from "react";
 
 export default function Question({question, answer, index}){    
+    
     const [cardClasses, setCardClasses] = React.useState("card");
     const [frontClasses, setFrontClasses] = React.useState("front hidden");
     const [backClasses, setBackClasses] = React.useState("back hidden");
     const [questionClasses, setQuestionClasses] = React.useState("question");
+    const [cardTextClasses, setCardTextClasses] = React.useState("");
+    const [cardIon, setCardIon] = React.useState("play-outline");
+    const [ionClass, setIonClass] = React.useState("");
+    const [answered, setAnswered] = React.useState(false);
     
     function showQuestion(){
-       setQuestionClasses("question hidden");
-       setFrontClasses("front height130");
-       setCardClasses("card height130");
+       
+       if(answered){
+            return;
+       }else{
+            setQuestionClasses("question hidden");
+            setFrontClasses("front");
+            setCardClasses("card height130");
+       }
     }
 
     function turnCard(){
         setFrontClasses("front hidden");
-        setBackClasses("back height130");
+        setBackClasses("back");
         setCardClasses("card height130");
     }
 
     function processResult(color){
-        alert(color);
+        setFrontClasses("front hidden");
+        setBackClasses("back hidden");
+        setQuestionClasses("question");
+        setCardClasses("card");
+        setCardTextClasses("linethrough " + color);
+        
+        if(color === 'green'){
+            setCardIon("checkmark-circle");
+        }else if(color === 'red'){
+            setCardIon("close-circle");
+        }else{
+            setCardIon("help-circle");
+        }
+
+        setIonClass(color);
+        setAnswered(true);
     }
     
     return(
         <div className={cardClasses}>
             <div className={questionClasses} onClick={showQuestion}>
-                <h4>Pergunta {index + 1}</h4>
-                <ion-icon name="play-outline"></ion-icon>
+                <h4 className={cardTextClasses}>Pergunta {index + 1}</h4>
+                <div className={ionClass}><ion-icon name={cardIon} ></ion-icon></div>
             </div>
             <div className={frontClasses} onClick={turnCard}>
                 <h3>{question}</h3>
@@ -35,9 +60,9 @@ export default function Question({question, answer, index}){
             <div className={backClasses}>
                 <h3>{answer}</h3>
                 <div className="results">
-                    <div className="result red" onClick={() => processResult('red')}>Não lembrei</div>
-                    <div className="result orange" onClick={() => processResult('orange')}>Quase não lembrei</div>
-                    <div className="result green" onClick={() => processResult('green')}>Zap!</div>
+                    <div className="result redBackground" onClick={() => processResult('red')}>Não lembrei</div>
+                    <div className="result orangeBackground" onClick={() => processResult('orange')}>Quase não lembrei</div>
+                    <div className="result greenBackground" onClick={() => processResult('green')}>Zap!</div>
                 </div>
             </div>
         </div>
