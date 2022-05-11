@@ -84,7 +84,7 @@ body{
     align-items: center;
 }
 
-.question{
+.card{
     width: 300px;
     height: 65px;
     margin-bottom: 25px;
@@ -101,7 +101,7 @@ body{
     transform-style: preserve-3d;
 }
 
-.questionOut{
+.question{
     width: 100%;
     height: 100%;
     padding: 0 20px;
@@ -114,7 +114,7 @@ body{
     font-size: 16px;
 }
 
-.questionOut ion-icon{
+.question ion-icon{
     font-size: 30px;
 }
 
@@ -143,27 +143,94 @@ body{
     right: 10px;
 }
 
-
-
-
-
-
-
 .back {
     width: 100%;
-    transform: rotateY(180deg);
+    height: 130px;
+
+    background-color: #FFFFD4;
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+
+    position: relative;
 }
 
-.showBack{
-    transform: rotateY(0deg);
+.back h3{
+    font-family: 'Recursive', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #333333;
+
+    margin: 0 15px;
+    margin-top: 15px;
+    word-wrap: break-word;
 }
 
-.hideFront{
-    transform: rotateY(180deg);
+.results{
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
+
+.result{
+    width: 85px;
+    height: 38px;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-family: 'Recursive', sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .hidden{
     display: none;
+}
+
+.red{
+    background-color: #FF3030;
+}
+
+.orange{
+    background-color: #FF922E;
+}
+
+.green{
+    background-color: #2FBE34;
 }
 
 
