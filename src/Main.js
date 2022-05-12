@@ -1,4 +1,5 @@
 import Question from "./Question";
+import Results from "./Results";
 import React from "react";
 
 export default function Main(){
@@ -33,14 +34,15 @@ export default function Main(){
     const [answered, setAnswered] = React.useState(0);
     const [answerResults, setAnswerResults] = React.useState([]);
     
+    React.useEffect(() => {
+        if(answered === cards.length){
+            console.log("end");
+        }
+    }, [answered]);
+    
     function increaseAnswered(color){      
         setAnswered(answered + 1);
         setAnswerResults([...answerResults, color]); 
-        console.log(answerResults);
-
-        if(answered + 1 === cards.length){
-            console.log("end");
-        }
     }
 
     return(
@@ -53,8 +55,10 @@ export default function Main(){
                 {cards.map((card, index) => <Question index={index} question={card.question} answer={card.answer} increaseAnswered={increaseAnswered}/>)}
             </div>
             <div className="footer">
-                {answered}/{cards.length} CONCLUÍDOS
-                {/* exibir resultados das perguntas já respondidas */}
+            <div className="resultsContainer">
+                    <p>{answered}/{cards.length} CONCLUÍDOS</p>
+                    <Results answerResults = {answerResults}/>
+                </div>
             </div>
         </>
     )
