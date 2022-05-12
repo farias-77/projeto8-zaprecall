@@ -1,4 +1,5 @@
 import Question from "./Question";
+import React from "react";
 
 export default function Main(){
     
@@ -28,9 +29,20 @@ export default function Main(){
          answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente",
          color: ""}
     ]
+
+    const [answered, setAnswered] = React.useState(0);
+    const [answerResults, setAnswerResults] = React.useState([]);
     
-    
-    
+    function increaseAnswered(color){      
+        setAnswered(answered + 1);
+        setAnswerResults([...answerResults, color]); 
+        console.log(answerResults);
+
+        if(answered + 1 === cards.length){
+            console.log("end");
+        }
+    }
+
     return(
         <>
             <div className="header">
@@ -38,10 +50,11 @@ export default function Main(){
                 <div className="pageTitle" >ZapRecall</div>
             </div>
             <div className="questions">
-                {cards.map((card, index) => <Question question={card.question} answer={card.answer} index={index}/>)}
+                {cards.map((card, index) => <Question index={index} question={card.question} answer={card.answer} increaseAnswered={increaseAnswered}/>)}
             </div>
             <div className="footer">
-                0/{cards.length} CONCLUÍDOS
+                {answered}/{cards.length} CONCLUÍDOS
+                {/* exibir resultados das perguntas já respondidas */}
             </div>
         </>
     )

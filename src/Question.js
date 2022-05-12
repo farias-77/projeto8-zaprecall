@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Question({question, answer, index}){    
+export default function Question({index, question, answer, increaseAnswered}){    
     
     const [cardClasses, setCardClasses] = React.useState("card");
     const [frontClasses, setFrontClasses] = React.useState("front face hidden");
@@ -30,6 +30,8 @@ export default function Question({question, answer, index}){
     }
 
     function processResult(color){
+        increaseAnswered(color);
+        
         setFrontClasses("face hidden");
         setBackClasses("face hidden");
         setQuestionClasses("question");
