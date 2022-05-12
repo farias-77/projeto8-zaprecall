@@ -3,8 +3,8 @@ import React from "react";
 export default function Question({question, answer, index}){    
     
     const [cardClasses, setCardClasses] = React.useState("card");
-    const [frontClasses, setFrontClasses] = React.useState("front hidden");
-    const [backClasses, setBackClasses] = React.useState("back hidden");
+    const [frontClasses, setFrontClasses] = React.useState("front face hidden");
+    const [backClasses, setBackClasses] = React.useState("back face hidden");
     const [questionClasses, setQuestionClasses] = React.useState("question");
     const [cardTextClasses, setCardTextClasses] = React.useState("");
     const [cardIon, setCardIon] = React.useState("play-outline");
@@ -17,20 +17,21 @@ export default function Question({question, answer, index}){
             return;
        }else{
             setQuestionClasses("question hidden");
-            setFrontClasses("front");
+            setFrontClasses("front face");
+            setBackClasses("back face");
             setCardClasses("card height130");
        }
     }
 
     function turnCard(){
-        setFrontClasses("front hidden");
-        setBackClasses("back");
+        setFrontClasses("face hideFront");
+        setBackClasses("face showBack");
         setCardClasses("card height130");
     }
 
     function processResult(color){
-        setFrontClasses("front hidden");
-        setBackClasses("back hidden");
+        setFrontClasses("face hidden");
+        setBackClasses("face hidden");
         setQuestionClasses("question");
         setCardClasses("card");
         setCardTextClasses("linethrough " + color);
