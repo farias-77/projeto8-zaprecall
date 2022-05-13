@@ -26,8 +26,8 @@ export default function Question({index, question, answer, increaseAnswered}){
     }
 
     function turnCard(){
-        setFrontClasses("face hideFront");
-        setBackClasses("face showBack");
+        setFrontClasses("face front hideFront");
+        setBackClasses("face back showBack");
         setCardClasses("card height130");
     }
 
@@ -63,7 +63,7 @@ export default function Question({index, question, answer, increaseAnswered}){
                 <img src={arrow} alt="setinha"/>
             </div>
             <div className={backClasses}>
-                <h3>{answer}</h3>
+                <div className="answer"><h3>{answer}</h3></div>
                 <div className="results">
                     <div className="result redBackground" onClick={() => processResult('red')}>Não lembrei</div>
                     <div className="result orangeBackground" onClick={() => processResult('orange')}>Quase não lembrei</div>

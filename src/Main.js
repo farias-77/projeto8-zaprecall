@@ -34,7 +34,9 @@ export default function Main(){
          {question:"Usamos estado (state) para __",
          answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente",
          color: ""}
-    ]
+    ];
+
+    cards.sort(comparador);
 
     const [answered, setAnswered] = React.useState(0);
     const [answerResults, setAnswerResults] = React.useState([]);
@@ -60,6 +62,10 @@ export default function Main(){
             setAnswerResults([...answerResults, <div className={color}><ion-icon name="close-circle" ></ion-icon></div>]);
             setWrongAnswer(true);
         }
+    }
+
+    function comparador(){
+        return Math.random() - 0.5;
     }
 
     return(
