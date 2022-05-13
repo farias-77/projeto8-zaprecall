@@ -2,6 +2,8 @@ import Question from "./Question";
 import Results from "./Results";
 import React from "react";
 
+import logoPequena from "./assets/logo-pequeno.png";
+
 export default function Main(){
     
     const cards = [
@@ -59,7 +61,7 @@ export default function Main(){
     return(
         <>
             <div className="header">
-                <img src="assets/logo-pequeno.png" alt="logo" />
+                <img src={logoPequena} alt="logo" />
                 <div className="pageTitle" >ZapRecall</div>
             </div>
             <div className="questions">

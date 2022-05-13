@@ -1,5 +1,7 @@
 import React from "react";
 
+import arrow from "./assets/setinha.png"
+
 export default function Question({index, question, answer, increaseAnswered}){    
     
     const [cardClasses, setCardClasses] = React.useState("card");
@@ -58,7 +60,7 @@ export default function Question({index, question, answer, increaseAnswered}){
             </div>
             <div className={frontClasses} onClick={turnCard}>
                 <h3>{question}</h3>
-                <img src="assets/setinha.png" alt="setinha"/>
+                <img src={arrow} alt="setinha"/>
             </div>
             <div className={backClasses}>
                 <h3>{answer}</h3>
