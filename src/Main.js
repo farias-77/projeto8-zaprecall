@@ -1,7 +1,10 @@
 import Question from "./Question";
 import Results from "./Results";
+import FinalMessage from "./FinalMessage";
 import React from "react";
 
+import happy from "./assets/party 2.png";
+import sad from "./assets/sad 7.png";
 import logoPequena from "./assets/logo-pequeno.png";
 
 export default function Main(){
@@ -35,16 +38,16 @@ export default function Main(){
 
     const [answered, setAnswered] = React.useState(0);
     const [answerResults, setAnswerResults] = React.useState([]);
+    const [wrongAnswer, setWrongAnswer] = React.useState(false);
+    const [message, setMessage] = React.useState([]);
     
     React.useEffect(() => {
-        if(answered === cards.length){
-            console.log("end");
+        if(answered === cards.length && wrongAnswer){
+            setMessage([...message, <div className="finalMessageText"><h5><img src={sad} alt="emoji triste" />   Putz...</h5><p>Ainda faltam alguns...<br />Mas não desanime!</p></div>]);
+        }else if(answered === cards.length){
+            setMessage([...message, <div className="finalMessageText"><h5><img src={happy} alt="emoji feliz" />   Parabéns!</h5><p>Você não esqueceu de nenhum flashcard!</p></div>]);
         }
     }, [answered]);
-
-    React.useEffect(() => {
-        
-    }, [answerResults]);
     
     function increaseAnswered(color){      
         setAnswered(answered + 1);
@@ -55,6 +58,7 @@ export default function Main(){
             setAnswerResults([...answerResults, <div className={color}><ion-icon name="help-circle" ></ion-icon></div>]);
         }else{ 
             setAnswerResults([...answerResults, <div className={color}><ion-icon name="close-circle" ></ion-icon></div>]);
+            setWrongAnswer(true);
         }
     }
 
@@ -69,6 +73,7 @@ export default function Main(){
             </div>
             <div className="footer">
                 <div className="resultsContainer">
+                    <FinalMessage cardsLength = {cards.length} answered = {answered}>{message}</FinalMessage>
                     <p>{answered}/{cards.length} CONCLUÍDOS</p>
                     <Results>{answerResults}</Results>
                 </div>
