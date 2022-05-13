@@ -39,10 +39,21 @@ export default function Main(){
             console.log("end");
         }
     }, [answered]);
+
+    React.useEffect(() => {
+        
+    }, [answerResults]);
     
     function increaseAnswered(color){      
         setAnswered(answered + 1);
-        setAnswerResults([...answerResults, color]); 
+        
+        if(color === "green"){
+            setAnswerResults([...answerResults, <div className={color}><ion-icon name="checkmark-circle" ></ion-icon></div>]);
+        }else if(color === "orange"){
+            setAnswerResults([...answerResults, <div className={color}><ion-icon name="help-circle" ></ion-icon></div>]);
+        }else{ 
+            setAnswerResults([...answerResults, <div className={color}><ion-icon name="close-circle" ></ion-icon></div>]);
+        }
     }
 
     return(
@@ -55,9 +66,9 @@ export default function Main(){
                 {cards.map((card, index) => <Question index={index} question={card.question} answer={card.answer} increaseAnswered={increaseAnswered}/>)}
             </div>
             <div className="footer">
-            <div className="resultsContainer">
+                <div className="resultsContainer">
                     <p>{answered}/{cards.length} CONCLUÍDOS</p>
-                    <Results answerResults = {answerResults}/>
+                    <Results>{answerResults}</Results>
                 </div>
             </div>
         </>

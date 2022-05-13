@@ -1,9 +1,9 @@
-export default function BoasVindas(){
+export default function BoasVindas({setChangePage}){
     return(
         <div className="boasVindas">            
             <img src="assets/logo.png" alt="logo" />
-            <div class="pageTitle" >ZapRecall</div>
-            <button  >Iniciar Recall!</button>
+            <div className="pageTitle" >ZapRecall</div>
+            <button  onClick={() => setChangePage(true)}>Iniciar Recall!</button>
         </div>
     )
 
