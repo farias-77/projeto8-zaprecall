@@ -4,9 +4,9 @@ import React from "react";
 
 export default function App(){ 
     
-    const [changePage, setChangePage] = React.useState(false);
+    const [pageStatus, setpageStatus] = React.useState(false);
     
     return (
-        changePage ? <Main /> : <Welcome setChangePage={setChangePage} />
+        pageStatus ? <Main /> : <Welcome setpageStatus={setpageStatus} />
     )
 }
