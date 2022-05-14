@@ -36,7 +36,7 @@ export default function Main(){
          color: ""}
     ];
 
-    cards.sort(comparador);
+    
 
     const [answered, setAnswered] = React.useState(0);
     const [answerResults, setAnswerResults] = React.useState([]);
@@ -44,6 +44,11 @@ export default function Main(){
     const [message, setMessage] = React.useState([]);
     
     React.useEffect(() => {
+        if(answered === 0){
+            console.log("sort")
+            cards.sort(comparador);
+        }
+        
         if(answered === cards.length && wrongAnswer){
             setMessage([...message, <div className="finalMessageText"><h5><img src={sad} alt="emoji triste" />   Putz...</h5><p>Ainda faltam alguns...<br />Mas não desanime!</p></div>]);
         }else if(answered === cards.length){
