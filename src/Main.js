@@ -75,7 +75,7 @@ export default function Main(){
     return(
         <>
             <div className="header">
-                <img src={logoPequena} alt="logo" />
+                <img src={logoPequena} alt="logo pequena" />
                 <div className="pageTitle" >ZapRecall</div>
             </div>
             <div className="questions">
