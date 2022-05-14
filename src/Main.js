@@ -45,7 +45,6 @@ export default function Main(){
     
     React.useEffect(() => {
         if(answered === 0){
-            console.log("sort")
             cards.sort(comparador);
         }
         
@@ -80,7 +79,7 @@ export default function Main(){
                 <div className="pageTitle" >ZapRecall</div>
             </div>
             <div className="questions">
-                {cards.map((card, index) => <Question index={index} question={card.question} answer={card.answer} increaseAnswered={increaseAnswered}/>)}
+                {cards.map((card, index) => <Question key={index} index={index} question={card.question} answer={card.answer} increaseAnswered={increaseAnswered}/>)}
             </div>
             <div className="footer">
                 <div className="resultsContainer">

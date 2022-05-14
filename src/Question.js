@@ -2,7 +2,7 @@ import React from "react";
 
 import arrow from "./assets/setinha.png"
 
-export default function Question({index, question, answer, increaseAnswered}){    
+export default function Question({ index, question, answer, increaseAnswered}){    
     
     const [cardClasses, setCardClasses] = React.useState("card");
     const [frontClasses, setFrontClasses] = React.useState("front face hidden");
